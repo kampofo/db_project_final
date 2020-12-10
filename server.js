@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const PORT = process.env.PORT || 3001
 
 app.use(express.json());
 
@@ -204,6 +205,7 @@ app.delete("/api/delete/:lastName/:firstName", (req, res) => {
 	});
 });
 
-app.listen("3001", () => {
-	console.log("App listening on port 3001");
+
+app.listen(PORT, () => {
+	console.log(`App listening on port ${PORT}`);
 });
