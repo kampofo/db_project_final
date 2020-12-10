@@ -36,10 +36,10 @@ app.use(
 
 
 const db = mysql.createConnection({
-	user: "root",
-	host: "localhost",
-	password: "root",
-	database: "Project455",
+	user: "bb21b84e2f4337",
+	host: "us-cdbr-east-02.cleardb.com",
+	password: "93ba4236",
+	database: "dbms-project-final",
   });
 
 app.get("/api/login", (req,res) => {
