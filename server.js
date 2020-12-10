@@ -206,7 +206,7 @@ app.delete("/api/delete/:lastName/:firstName", (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/buiild'));
+	app.use(express.static('client/build'));
 }
 
 
