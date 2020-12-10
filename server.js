@@ -205,6 +205,10 @@ app.delete("/api/delete/:lastName/:firstName", (req, res) => {
 	});
 });
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/buiild'));
+}
+
 
 app.listen(PORT, () => {
 	console.log(`App listening on port ${PORT}`);
