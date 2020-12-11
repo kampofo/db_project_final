@@ -19,7 +19,7 @@ function Employee() {
   Axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/login").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/login").then((response) => {
       if (response.data.loggedIn == true) {
         setType(response.data.user[0].Category);
       }
@@ -27,7 +27,7 @@ function Employee() {
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/patients/employee").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/patients/employee").then((response) => {
       setPatientsList(response.data)
     })
   }, []);
@@ -57,21 +57,21 @@ function Employee() {
     { key: 'Category', name: 'Category' },
 
   ];
-  
+
   const goHome = () => {
     window.location.pathname = "/";
   };
 
   return (
     <div>
-       <div>
+      <div>
         <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>Welcome Front Desk!</h1>
         <DataGrid className='rdg-light'
           columns={columns}
           rows={patientsList}
         />
         <button onClick={goHome}>Go Home</button>
-      </div> 
+      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const LogIn = () => {
     Axios.defaults.withCredentials = true;
 
     const login = () => {
-        Axios.post("http://localhost:3001/api/login", {
+        Axios.post("https://dbms-project-final.herokuapp.com/api/login", {
             Pin: Pin,
             Password: Password,
         }).then(response => {
@@ -20,16 +20,16 @@ const LogIn = () => {
                 setLoginStatus(response.data.message);
             } else {
                 setLoginStatus(response.data[0].Pin);
-                if (response.data[0].Category == "Cardiologist"){
+                if (response.data[0].Category == "Cardiologist") {
                     window.location.pathname = "/Cardio";
                 }
-                else if (response.data[0].Category == "Endocrinologist"){
+                else if (response.data[0].Category == "Endocrinologist") {
                     window.location.pathname = "/Endo";
                 }
-                else if (response.data[0].Category == "Neurologist"){
+                else if (response.data[0].Category == "Neurologist") {
                     window.location.pathname = "/Neuro";
                 }
-                else{
+                else {
                     window.location.pathname = "/Employee";
                 }
             }
@@ -37,7 +37,7 @@ const LogIn = () => {
     };
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/login").then((response) => {
+        Axios.get("https://dbms-project-final.herokuapp.com/api/login").then((response) => {
             if (response.data.loggedIn == true) {
                 setLoginStatus(response.data.user[0].Pin);
             }

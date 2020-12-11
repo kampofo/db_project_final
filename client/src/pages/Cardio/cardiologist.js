@@ -19,7 +19,7 @@ function Cardiologist() {
   Axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/login").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/login").then((response) => {
       if (response.data.loggedIn == true) {
         setType(response.data.user[0].Category);
       }
@@ -27,7 +27,7 @@ function Cardiologist() {
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/patients/cardio").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/patients/cardio").then((response) => {
       setPatientsList(response.data)
     })
   }, []);

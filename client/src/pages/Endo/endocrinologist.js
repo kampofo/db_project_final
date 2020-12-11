@@ -19,7 +19,7 @@ function Endocrinologist() {
   Axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/login").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/login").then((response) => {
       if (response.data.loggedIn == true) {
         setType(response.data.user[0].Category);
       }
@@ -27,7 +27,7 @@ function Endocrinologist() {
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/patients/endo").then((response) => {
+    Axios.get("https://dbms-project-final.herokuapp.com/api/patients/endo").then((response) => {
       setPatientsList(response.data)
     })
   }, []);
